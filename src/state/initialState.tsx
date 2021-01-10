@@ -11,19 +11,24 @@ export const getInitialState = (): IApplicationState => {
 
 	if (storedCommands) {
 		state.commands = JSON.parse(storedCommands);
+		return state;
 	}
 
+	// Return the default command set
 	state.commands = [
 		{
 			command: 'Left',
 			rotate: -90,
+			move: 0,
 		},
 		{
 			command: 'Right',
 			rotate: 90,
+			move: 0,
 		},
 		{
 			command: 'Forward',
+			rotate: 0,
 			move: 1,
 		},
 	];

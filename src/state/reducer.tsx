@@ -1,6 +1,6 @@
 import { Action } from './Action';
 import { IApplicationState } from './IApplicationState';
-import { ICommand } from './ICommand';
+import { ICommand } from '../types/ICommand';
 import { IReducerAction } from './IReducerAction';
 
 export const Reducer = (state: IApplicationState, action: IReducerAction) => {
