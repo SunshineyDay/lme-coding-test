@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { AppContext } from '../state/context';
+import { AppContext } from '../state/Context';
 
 export const Instructions: React.FC<any> = () => {
 	const { state, dispatch } = useContext(AppContext);

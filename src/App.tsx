@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { Home } from './components/home';
-import { Instructions } from './components/instructions';
-import { AppProvider } from './state/context';
+import { Home } from './components/Home';
+import { Instructions } from './components/Instructions';
+import { AppProvider } from './state/Context';
 
 function App() {
 	return (

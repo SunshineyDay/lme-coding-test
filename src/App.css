@@ -8,14 +8,18 @@ body {
 
 nav {
   background-color: rgb(20, 66, 107);
-  margin-bottom: 65px;
 }
 
 .nav-link {
   color: rgb(255, 255, 255) !important;
 }
 
+.homeContainer {
+  margin-top: 165px;
+}
+
 .welcome {
+  margin-top: 40px;
   font-family: 'Roboto', sans-serif;
   font-size: 36px;
   font-weight: 900;
@@ -80,4 +84,8 @@ nav {
 
 .upload-btn {
   margin-top: 10px;
+}
+
+pre {
+  font-size: 10px;
 }

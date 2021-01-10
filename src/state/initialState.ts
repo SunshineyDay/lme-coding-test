@@ -5,17 +5,20 @@ export const CommandsLocalStorageKey = 'lme.codingtest.commands';
 export const getInitialState = (): IApplicationState => {
 	// Pick up the app's initial state - check local storage first, and if
 	// not found there then return the default command set
-	let state: IApplicationState = { commands: [] };
+	let state: IApplicationState = {
+		commandTypes: [],
+		instructions: [],
+	};
 
 	const storedCommands = localStorage.getItem(CommandsLocalStorageKey);
 
 	if (storedCommands) {
-		state.commands = JSON.parse(storedCommands);
+		state.commandTypes = JSON.parse(storedCommands);
 		return state;
 	}
 
 	// Return the default command set
-	state.commands = [
+	state.commandTypes = [
 		{
 			command: 'Left',
 			rotate: -90,
@@ -33,7 +36,7 @@ export const getInitialState = (): IApplicationState => {
 		},
 	];
 
-	localStorage.setItem(CommandsLocalStorageKey, JSON.stringify(state.commands));
+	localStorage.setItem(CommandsLocalStorageKey, JSON.stringify(state.commandTypes));
 
 	return state;
 };

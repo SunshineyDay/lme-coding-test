@@ -8,13 +8,20 @@ export const Reducer = (state: IApplicationState, action: IReducerAction) => {
 		case Action.AddCommand:
 			return {
 				...state,
-				commands: state.commands.concat(action.payload as ICommand),
+				commands: state.commandTypes.concat(action.payload as ICommand),
 			};
 
 		case Action.DeleteCommand:
 			return {
 				...state,
-				commands: state.commands.filter((cmd) => cmd.command !== action.payload),
+				commands: state.commandTypes.filter((cmd) => cmd.command !== action.payload),
+			};
+
+		case Action.LoadFile:
+			return {
+				...state,
+				gridLimit: action.payload?.gridLimit,
+				instructions: action.payload?.instructions,
 			};
 
 		default:

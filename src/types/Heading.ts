@@ -3,4 +3,5 @@ export enum Heading {
 	South = 'SOUTH',
 	East = 'EAST',
 	West = 'WEST',
+	Unknown = 'UNKNOWN',
 }

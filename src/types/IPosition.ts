@@ -1,5 +1,5 @@
 import { Heading } from './Heading';
-import { ICoordinate } from './ICorrdinate';
+import { ICoordinate } from './ICoordinate';
 
 export interface IPosition {
 	coordinate: ICoordinate;
