@@ -1,3 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  background-color: rgb(237, 237, 244);
+}
+
+nav {
+  background-color: rgb(20, 66, 107);
+  margin-bottom: 65px;
+}
+
+.nav-link {
+  color: rgb(255, 255, 255) !important;
+}
+
+.welcome {
+  font-family: 'Roboto', sans-serif;
+  font-size: 36px;
+  font-weight: 900;
+  color: rgb(20, 66, 107);
+}
+
+.intro {
+  font-size: 18px;
+}
+
 .App {
   text-align: center;
 }
@@ -32,7 +60,21 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+#watermark {
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+  opacity: 0.2;
+  z-index: 99;
+  color: white;
+}
+
+.upload-btn {
+  margin-top: 10px;
 }
