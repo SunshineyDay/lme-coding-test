@@ -1,13 +1,9 @@
-import React, { useContext } from 'react';
-import { AppContext } from '../state/Context';
+import React from 'react';
 
 export const Instructions: React.FC<any> = () => {
-	const { state, dispatch } = useContext(AppContext);
-
 	return (
-		<div>
-			<h2>Instruction Type Management</h2>
-			<pre>{JSON.stringify(state, null, 2)}</pre>
+		<div className="component-container">
+			<h3>Instruction Types</h3>
 		</div>
 	);
 };

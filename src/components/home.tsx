@@ -4,12 +4,10 @@ import { Upload } from './Upload';
 import FadeIn from 'react-fade-in';
 
 export const Home: React.FC<any> = () => {
-	const fadeDelay = 200;
-
 	return (
 		<div className="container">
-			<FadeIn delay={fadeDelay}>
-				<div className="row homeContainer">
+			<FadeIn delay={200}>
+				<div className="row home-container">
 					<div className="col-lg-4 offset-lg-2">
 						<img src={robot} alt="Welcome Robot" height="300" width="300" />
 					</div>

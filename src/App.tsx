@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { Home } from './components/Home';
 import { Instructions } from './components/Instructions';
 import { AppProvider } from './state/Context';
+import { Results } from './components/Results';
 
 function App() {
 	return (
@@ -14,6 +15,9 @@ function App() {
 						<div className="navbar-nav">
 							<Link className="nav-link" to="/">
 								Home
+							</Link>
+							<Link className="nav-link" to="/results">
+								Results
 							</Link>
 							<Link className="nav-link" to="/instructions">
 								Instruction Types
@@ -28,6 +32,9 @@ function App() {
 					</Route>
 					<Route path="/instructions">
 						<Instructions />
+					</Route>
+					<Route path="/results">
+						<Results />
 					</Route>
 				</Switch>
 			</Router>

@@ -14,8 +14,12 @@ nav {
   color: rgb(255, 255, 255) !important;
 }
 
-.homeContainer {
+.home-container {
   margin-top: 165px;
+}
+
+.component-container {
+  margin: 20px 0 0 20px;
 }
 
 .welcome {
@@ -88,4 +92,8 @@ nav {
 
 pre {
   font-size: 10px;
+}
+
+.result-container {
+  z-index: 100;
 }
