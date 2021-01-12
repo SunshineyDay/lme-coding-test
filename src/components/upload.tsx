@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { MouseEvent } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Button } from 'reactstrap';
+import { processInstructions } from '../services/movementService';
 import { parseFileData } from '../services/parsingService';
 import { Action } from '../state/Action';
 import { AppContext } from '../state/Context';
@@ -8,7 +10,7 @@ import { IInputFile } from '../types/IInputFile';
 
 export const Upload: React.FC<any> = () => {
 	const { state, dispatch } = useContext(AppContext);
-	console.log('Upload.tsx State', state);
+	const history = useHistory();
 	const fileInput = React.useRef(null);
 
 	const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
@@ -25,17 +27,24 @@ export const Upload: React.FC<any> = () => {
 
 			// Parse to an array of instructions, one per robot
 			const fileData: IInputFile = parseFileData(text);
-			console.log(fileData);
 
-			// Hold the grid limits and instructions in state
+			// Process the instructions
+			const processedInstructions = processInstructions(fileData.gridLimit, fileData.instructions, state.commandTypes);
+
+			// Hold the grid limits, instructions, and results in state
 			dispatch({
 				type: Action.LoadFile,
 				payload: {
 					gridLimit: fileData.gridLimit,
-					instructions: fileData.instructions,
+					instructions: processedInstructions,
+					fileLoaded: true,
 				},
 			});
+
+			// Redirect to the Results
+			history.push('/results');
 		};
+
 		reader.readAsText(e.target.files[0]);
 	};
 

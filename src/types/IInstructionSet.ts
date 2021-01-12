@@ -1,5 +1,8 @@
 import { IPosition } from './IPosition';
 export interface IInstructionSet {
-	startingPosition: IPosition;
-	instructions: string;
+	startPosition: IPosition;
+	directions: string;
+	endPosition: IPosition;
+	isLost: boolean;
+	isInvalidDirections: boolean;
 }

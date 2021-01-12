@@ -6,6 +6,7 @@ export const getInitialState = (): IApplicationState => {
 	// Pick up the app's initial state - check local storage first, and if
 	// not found there then return the default command set
 	let state: IApplicationState = {
+		fileLoaded: false,
 		commandTypes: [],
 		instructions: [],
 	};
@@ -20,17 +21,20 @@ export const getInitialState = (): IApplicationState => {
 	// Return the default command set
 	state.commandTypes = [
 		{
-			command: 'Left',
+			command: 'L',
+			description: 'Left',
 			rotate: -90,
 			move: 0,
 		},
 		{
-			command: 'Right',
+			command: 'R',
+			description: 'Right',
 			rotate: 90,
 			move: 0,
 		},
 		{
-			command: 'Forward',
+			command: 'F',
+			description: 'Forward',
 			rotate: 0,
 			move: 1,
 		},

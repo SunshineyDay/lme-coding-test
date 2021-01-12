@@ -1,5 +1,6 @@
 export interface ICommand {
 	command: string;
-	rotate?: number;
-	move?: number;
+	description: string;
+	rotate: number;
+	move: number;
 }

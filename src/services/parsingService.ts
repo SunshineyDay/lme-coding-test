@@ -26,7 +26,7 @@ export const getCoordinate = (data: string): ICoordinate => {
 	};
 };
 
-export const getStartingPosition = (data: string): IPosition => {
+export const getPosition = (data: string): IPosition => {
 	return {
 		coordinate: getCoordinate(data),
 		heading: getHeading(data[4]),
@@ -40,11 +40,15 @@ export const parseFileData = (input: string): IInputFile => {
 
 	const instructions: IInstructionSet[] = fileContent.map((row, index) => {
 		const rowData = row.split('\r\n');
-		const startingPosition = index !== 0 ? getStartingPosition(rowData[0]) : getStartingPosition(rowData[1]);
-		const instructions = index !== 0 ? rowData[1] : rowData[2];
+		const startPosition = index !== 0 ? getPosition(rowData[0]) : getPosition(rowData[1]);
+		const endPosition = getPosition('9 9 W');
+		const directions = index !== 0 ? rowData[1] : rowData[2];
 		return {
-			startingPosition,
-			instructions,
+			startPosition,
+			directions,
+			endPosition,
+			isLost: false,
+			isInvalidDirections: false,
 		};
 	});
 

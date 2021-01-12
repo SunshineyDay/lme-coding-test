@@ -14,20 +14,32 @@ nav {
   color: rgb(255, 255, 255) !important;
 }
 
+.nav-logo {
+  vertical-align: top !important;
+}
+
 .home-container {
   margin-top: 165px;
 }
 
 .component-container {
-  margin: 20px 0 0 20px;
+  margin: 20px 0 0 30px;
 }
 
-.welcome {
+h3,
+.component-heading {
   margin-top: 40px;
   font-family: 'Roboto', sans-serif;
-  font-size: 36px;
   font-weight: 900;
   color: rgb(20, 66, 107);
+}
+
+h3 {
+  font-size: 30px;
+}
+
+.component-heading {
+  font-size: 36px;
 }
 
 .intro {
@@ -81,6 +93,7 @@ nav {
   opacity: 0.4;
   z-index: 99;
 }
+
 #logo-watermark img {
   width: 512px;
   height: 72px;
@@ -96,4 +109,9 @@ pre {
 
 .result-container {
   z-index: 100;
+}
+
+.result-label {
+  width: 105px;
+  display: inline-block;
 }

@@ -20,6 +20,7 @@ export const Reducer = (state: IApplicationState, action: IReducerAction) => {
 		case Action.LoadFile:
 			return {
 				...state,
+				fileLoaded: true,
 				gridLimit: action.payload?.gridLimit,
 				instructions: action.payload?.instructions,
 			};

@@ -1,4 +1,4 @@
-import { getHeading, getStartingPosition, getCoordinate, parseFileData } from '../services/parsingService';
+import { getHeading, getPosition, getCoordinate, parseFileData } from '../services/parsingService';
 import { Heading } from '../types/Heading';
 import { IPosition } from '../types/IPosition';
 import { ICoordinate } from '../types/ICoordinate';
@@ -46,9 +46,9 @@ describe('Coordinate tests', () => {
 });
 
 describe('Position tests', () => {
-	test('Starting position is correctly parsed', () => {
+	test('Start position is correctly parsed', () => {
 		const value = '1 2 E';
-		const position: IPosition = getStartingPosition(value);
+		const position: IPosition = getPosition(value);
 		expect(position.coordinate.x).toEqual(1);
 		expect(position.coordinate.y).toEqual(2);
 		expect(position.heading).toEqual(Heading.East);
@@ -65,19 +65,19 @@ describe('Input file parsing tests', () => {
 
 		expect(parsedData.instructions.length).toEqual(3);
 
-		expect(parsedData.instructions[0].startingPosition.coordinate.x).toEqual(1);
-		expect(parsedData.instructions[0].startingPosition.coordinate.y).toEqual(2);
-		expect(parsedData.instructions[0].startingPosition.heading).toEqual(Heading.East);
-		expect(parsedData.instructions[0].instructions).toEqual('RFRFRFRF');
+		expect(parsedData.instructions[0].startPosition.coordinate.x).toEqual(1);
+		expect(parsedData.instructions[0].startPosition.coordinate.y).toEqual(2);
+		expect(parsedData.instructions[0].startPosition.heading).toEqual(Heading.East);
+		expect(parsedData.instructions[0].directions).toEqual('RFRFRFRF');
 
-		expect(parsedData.instructions[1].startingPosition.coordinate.x).toEqual(2);
-		expect(parsedData.instructions[1].startingPosition.coordinate.y).toEqual(3);
-		expect(parsedData.instructions[1].startingPosition.heading).toEqual(Heading.North);
-		expect(parsedData.instructions[1].instructions).toEqual('FRRFLLFFRRFLL');
+		expect(parsedData.instructions[1].startPosition.coordinate.x).toEqual(2);
+		expect(parsedData.instructions[1].startPosition.coordinate.y).toEqual(3);
+		expect(parsedData.instructions[1].startPosition.heading).toEqual(Heading.North);
+		expect(parsedData.instructions[1].directions).toEqual('FRRFLLFFRRFLL');
 
-		expect(parsedData.instructions[2].startingPosition.coordinate.x).toEqual(3);
-		expect(parsedData.instructions[2].startingPosition.coordinate.y).toEqual(4);
-		expect(parsedData.instructions[2].startingPosition.heading).toEqual(Heading.West);
-		expect(parsedData.instructions[2].instructions).toEqual('LLFFFLFLFL');
+		expect(parsedData.instructions[2].startPosition.coordinate.x).toEqual(3);
+		expect(parsedData.instructions[2].startPosition.coordinate.y).toEqual(4);
+		expect(parsedData.instructions[2].startPosition.heading).toEqual(Heading.West);
+		expect(parsedData.instructions[2].directions).toEqual('LLFFFLFLFL');
 	});
 });

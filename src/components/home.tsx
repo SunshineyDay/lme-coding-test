@@ -12,7 +12,7 @@ export const Home: React.FC<any> = () => {
 						<img src={robot} alt="Welcome Robot" height="300" width="300" />
 					</div>
 					<div className="col-lg-6">
-						<div className="welcome">LME Martian Robot Control</div>
+						<div className="component-heading">LME Martian Robot Control</div>
 						<div className="intro">To get started, upload an instruction file...</div>
 						<Upload />
 					</div>
