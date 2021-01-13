@@ -11,6 +11,7 @@ export const CommandTypeGrid: React.FC<ICommandTypeGridProps> = (props) => {
 		filter: true,
 		menuTabs: ['filterMenuTab'],
 		resizable: true,
+		sortable: true,
 	};
 
 	const frameworkComponents = {
