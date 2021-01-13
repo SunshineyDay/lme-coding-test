@@ -120,3 +120,7 @@ pre {
   font-size: 12px;
   color: darkred;
 }
+
+.delete-icon {
+  cursor: pointer;
+}

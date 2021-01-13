@@ -16,5 +16,7 @@ export const DeleteBtnCellRenderer: React.FC = (props: any) => {
 		});
 	};
 
-	return command && !command.isProtected ? <img src={deleteIcon} alt="Delete" width="10" height="10" onClick={onDeleteClick} /> : null;
+	return command && !command.isProtected ? (
+		<img src={deleteIcon} alt="Delete" width="10" height="10" onClick={onDeleteClick} className="delete-icon" />
+	) : null;
 };
