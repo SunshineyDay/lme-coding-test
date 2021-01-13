@@ -30,15 +30,21 @@ export const CommandTypeForm: React.FC<ICommandTypeFormProps> = (props) => {
 			>
 				{({ errors, touched, isValid }) => (
 					<>
-						<Form className="form-inline">
+						<Form>
 							<Field type="text" className="form-control mb-2 mr-sm-2" name="command" placeholder="Command" />
 							{touched.command && errors.command && <div className="form-validation-error">{errors.command}</div>}{' '}
 							<Field type="text" className="form-control mb-2 mr-sm-2" name="description" placeholder="Description" />
 							{touched.description && errors.description && <div className="form-validation-error">{errors.description}</div>}
-							<Field type="text" className="form-control mb-2 mr-sm-2" name="rotate" placeholder="Rotate" />
+							<Field as="select" className="form-control mb-2 mr-sm-2" name="rotate" placeholder="Rotate">
+								<option value="0">No rotation</option>
+								<option value="90">90&#176;</option>
+								<option value="180">180&#176;</option>
+								<option value="270">270&#176;</option>
+							</Field>
 							{touched.rotate && errors.rotate && <div className="form-validation-error">{errors.rotate}</div>}
 							<Field type="text" className="form-control mb-2 mr-sm-2" name="move" placeholder="Move" />
 							{touched.move && errors.move && <div className="form-validation-error">{errors.move}</div>}
+							<br />
 							<button type="submit" className="btn btn-primary mb-2">
 								Add Instruction
 							</button>
