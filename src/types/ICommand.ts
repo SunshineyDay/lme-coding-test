@@ -3,4 +3,5 @@ export interface ICommand {
 	description: string;
 	rotate: number;
 	move: number;
+	isProtected: boolean;
 }

@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import FadeIn from 'react-fade-in';
 import { Action } from '../state/Action';
-import { AppContext } from '../state/Context';
 import { CommandTypeForm } from './CommandTypeForm';
 import { CommandTypeGrid } from './CommandTypeGrid';
 import { ICommand } from '../types/ICommand';
+import { AppContext } from '../state/Context';
 
 export const Instructions: React.FC<any> = () => {
 	const { state, dispatch } = useContext(AppContext);
@@ -18,6 +18,7 @@ export const Instructions: React.FC<any> = () => {
 			description: values.description,
 			rotate: +values.rotate,
 			move: +values.move,
+			isProtected: false,
 		};
 
 		dispatch({

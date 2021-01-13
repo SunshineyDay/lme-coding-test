@@ -25,18 +25,21 @@ export const getInitialState = (): IApplicationState => {
 			description: 'Left',
 			rotate: -90,
 			move: 0,
+			isProtected: true,
 		},
 		{
 			command: 'R',
 			description: 'Right',
 			rotate: 90,
 			move: 0,
+			isProtected: true,
 		},
 		{
 			command: 'F',
 			description: 'Forward',
 			rotate: 0,
 			move: 1,
+			isProtected: true,
 		},
 	];
 
