@@ -1,5 +1,9 @@
 import React from 'react';
+
+import 'ag-grid-community/dist/styles/ag-grid.css';
+import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 import './App.css';
+
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { Home } from './components/Home';
 import { Instructions } from './components/Instructions';

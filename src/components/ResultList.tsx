@@ -8,10 +8,10 @@ export const ResultList: React.FC<IResultListProps> = (props) => {
 		<>
 			{props.results.map((result: IInstructionSet, index: number) => {
 				return (
-					<>
-						<ResultCard key={`rc-${index}`} index={index} result={result} />
+					<React.Fragment key={index}>
+						<ResultCard index={index} result={result} />
 						<br />
-					</>
+					</React.Fragment>
 				);
 			})}
 		</>

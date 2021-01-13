@@ -24,7 +24,7 @@ export const ResultCard: React.FC<IResultCardProps> = (props) => {
 		return 'success';
 	};
 
-	const getRobot = (isLost: boolean, isInvalidDirections: boolean) => {
+	const getRobotImage = (isLost: boolean, isInvalidDirections: boolean) => {
 		if (isLost) {
 			return robotRed;
 		}
@@ -41,7 +41,7 @@ export const ResultCard: React.FC<IResultCardProps> = (props) => {
 			<div className="row">
 				<div className="col-lg-3 mt-4">
 					<img
-						src={getRobot(props.result.isLost, props.result.isInvalidDirections)}
+						src={getRobotImage(props.result.isLost, props.result.isInvalidDirections)}
 						alt="Result Robot"
 						width="100"
 						height="100"

@@ -90,9 +90,9 @@ export const processDirections = (
 	commandTypes: ICommand[],
 	warningCoordinates: ICoordinate[]
 ): IProcessDirectionsResult => {
-	const groupLabel = 'processDirections()';
+	const groupLabel = `processDirections(${directions})`;
 	console.group(groupLabel);
-	console.log('startPosition', startPosition);
+	console.log(`startPosition: ${startPosition.coordinate.x},${startPosition.coordinate.y} - ${startPosition.heading}`);
 
 	let isLost: boolean = false;
 

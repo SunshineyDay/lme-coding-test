@@ -16,7 +16,11 @@ export const Results = () => {
 				<FadeIn delay={200}>
 					<div className="row">
 						<div className="col-lg-6 offset-lg-3">
-							<ResultList results={results} />
+							{results.length ? (
+								<ResultList results={results} />
+							) : (
+								<div className="intro">No results - go to the Home page to load a file</div>
+							)}
 						</div>
 					</div>
 				</FadeIn>
