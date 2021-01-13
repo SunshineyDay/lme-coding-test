@@ -7,9 +7,10 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { Home } from './components/Home';
 import { Instructions } from './components/Instructions';
-import { AppProvider } from './state/Context';
 import { Results } from './components/Results';
 import logo from './images/London_Metal_Exchange_logo.svg';
+import { About } from './components/About';
+import { AppProvider } from './state/Context';
 
 function App() {
 	return (
@@ -30,6 +31,9 @@ function App() {
 							<Link className="nav-link" to="/instructions">
 								Instruction Types
 							</Link>
+							<Link className="nav-link" to="/about">
+								About
+							</Link>
 						</div>
 					</div>
 				</nav>
@@ -43,6 +47,9 @@ function App() {
 					</Route>
 					<Route path="/results">
 						<Results />
+					</Route>
+					<Route path="/about">
+						<About />
 					</Route>
 				</Switch>
 			</Router>
