@@ -9,7 +9,7 @@ export const Home: React.FC<any> = () => {
 			<FadeIn delay={200}>
 				<div className="row home-container">
 					<div className="col-lg-4 offset-lg-2">
-						<img src={robot} alt="Welcome Robot" height="300" width="300" />
+						<img src={robot} alt="Welcome Robot" data-testid="welcomeRobot" height="300" width="300" />
 					</div>
 					<div className="col-lg-6">
 						<div className="component-heading">LME Martian Robot Control</div>

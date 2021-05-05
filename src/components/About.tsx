@@ -81,6 +81,8 @@ export const About = () => {
 								3 3 N LOST
 								<br />2 3 S
 							</pre>
+							<p>Source code is available on Github...</p>
+							<a href='https://github.com/SunshineyDay/lme-coding-test'>https://github.com/SunshineyDay/lme-coding-test</a>
 						</div>
 					</div>
 				</FadeIn>

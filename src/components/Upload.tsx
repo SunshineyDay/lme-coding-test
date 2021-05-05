@@ -50,7 +50,7 @@ export const Upload: React.FC<any> = () => {
 
 	return (
 		<div>
-			<Button onClick={handleClick} color="primary" className="upload-btn">
+			<Button onClick={handleClick} color="primary" className="upload-btn" data-testid="upload-button">
 				Upload Instruction File
 			</Button>
 			<input type="file" ref={fileInput} onChange={(e) => readFile(e)} style={{ display: 'none' }} />

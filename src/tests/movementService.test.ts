@@ -1,20 +1,14 @@
 import { checkDirectionsString, getNewCoordinate, move, processDirections } from '../services/movementService';
 import { Heading } from '../types/Heading';
-import { ICommand } from '../types/ICommand';
 import { ICoordinate } from '../types/ICoordinate';
 import { IPosition } from '../types/IPosition';
 import { IProcessDirectionsResult } from '../types/IProcessDirectionsResult';
 import { IMovementResult } from '../types/IMovementResult';
+import { testCommandTypes } from './testHelpers';
 
 const gridLimit: ICoordinate = { x: 5, y: 3 };
 let warningCoordinates: ICoordinate[] = [];
 const startCoordinate: ICoordinate = { x: 2, y: 2 };
-
-const commandTypes: ICommand[] = [
-	{ command: 'L', description: 'Left', rotate: -90, move: 0 },
-	{ command: 'R', description: 'Right', rotate: 90, move: 0 },
-	{ command: 'F', description: 'Forward', rotate: 0, move: 1 },
-];
 
 describe('Coordinate tests', () => {
 	test('North movement', () => {
@@ -56,7 +50,7 @@ describe('Movement tests', () => {
 			coordinate: startCoordinate,
 			heading: Heading.North,
 		};
-		const result: IMovementResult = move(gridLimit, startPosition, commandTypes, 'L', warningCoordinates);
+		const result: IMovementResult = move(gridLimit, startPosition, testCommandTypes, 'L', warningCoordinates);
 		expect(result.newPosition.heading).toEqual(Heading.West);
 		expect(result.newPosition.coordinate.x).toEqual(startCoordinate.x);
 		expect(result.newPosition.coordinate.y).toEqual(startCoordinate.y);
@@ -67,7 +61,7 @@ describe('Movement tests', () => {
 			coordinate: startCoordinate,
 			heading: Heading.North,
 		};
-		const result: IMovementResult = move(gridLimit, startPosition, commandTypes, 'R', warningCoordinates);
+		const result: IMovementResult = move(gridLimit, startPosition, testCommandTypes, 'R', warningCoordinates);
 		expect(result.newPosition.heading).toEqual(Heading.East);
 		expect(result.newPosition.coordinate.x).toEqual(startCoordinate.x);
 		expect(result.newPosition.coordinate.y).toEqual(startCoordinate.y);
@@ -78,7 +72,7 @@ describe('Movement tests', () => {
 			coordinate: startCoordinate,
 			heading: Heading.North,
 		};
-		const result: IMovementResult = move(gridLimit, startPosition, commandTypes, 'F', warningCoordinates);
+		const result: IMovementResult = move(gridLimit, startPosition, testCommandTypes, 'F', warningCoordinates);
 		expect(result.newPosition.heading).toEqual(Heading.North);
 		expect(result.newPosition.coordinate.x).toEqual(startCoordinate.x);
 		expect(result.newPosition.coordinate.y).toEqual(startCoordinate.y + 1);
@@ -89,7 +83,7 @@ describe('Movement tests', () => {
 			coordinate: startCoordinate,
 			heading: Heading.East,
 		};
-		const result: IMovementResult = move(gridLimit, startPosition, commandTypes, 'F', warningCoordinates);
+		const result: IMovementResult = move(gridLimit, startPosition, testCommandTypes, 'F', warningCoordinates);
 		expect(result.newPosition.heading).toEqual(Heading.East);
 		expect(result.newPosition.coordinate.x).toEqual(startCoordinate.x + 1);
 		expect(result.newPosition.coordinate.y).toEqual(startCoordinate.y);
@@ -100,7 +94,7 @@ describe('Movement tests', () => {
 			coordinate: startCoordinate,
 			heading: Heading.South,
 		};
-		const result: IMovementResult = move(gridLimit, startPosition, commandTypes, 'F', warningCoordinates);
+		const result: IMovementResult = move(gridLimit, startPosition, testCommandTypes, 'F', warningCoordinates);
 		expect(result.newPosition.heading).toEqual(Heading.South);
 		expect(result.newPosition.coordinate.x).toEqual(startCoordinate.x);
 		expect(result.newPosition.coordinate.y).toEqual(startCoordinate.y - 1);
@@ -111,7 +105,7 @@ describe('Movement tests', () => {
 			coordinate: startCoordinate,
 			heading: Heading.West,
 		};
-		const result: IMovementResult = move(gridLimit, startPosition, commandTypes, 'F', warningCoordinates);
+		const result: IMovementResult = move(gridLimit, startPosition, testCommandTypes, 'F', warningCoordinates);
 		expect(result.newPosition.heading).toEqual(Heading.West);
 		expect(result.newPosition.coordinate.x).toEqual(startCoordinate.x - 1);
 		expect(result.newPosition.coordinate.y).toEqual(startCoordinate.y);
@@ -125,7 +119,13 @@ describe('Direction processing tests', () => {
 			heading: Heading.East,
 		};
 		const directions = 'RFRFRFRF';
-		const result: IProcessDirectionsResult = processDirections(gridLimit, startPosition, directions, commandTypes, warningCoordinates);
+		const result: IProcessDirectionsResult = processDirections(
+			gridLimit,
+			startPosition,
+			directions,
+			testCommandTypes,
+			warningCoordinates
+		);
 		expect(result.isLost).toEqual(false);
 		expect(result.endPosition.heading).toEqual(Heading.East);
 		expect(result.endPosition.coordinate.x).toEqual(1);
@@ -138,7 +138,13 @@ describe('Direction processing tests', () => {
 			heading: Heading.North,
 		};
 		const directions = 'FRRFLLFFRRFLL';
-		const result: IProcessDirectionsResult = processDirections(gridLimit, startPosition, directions, commandTypes, warningCoordinates);
+		const result: IProcessDirectionsResult = processDirections(
+			gridLimit,
+			startPosition,
+			directions,
+			testCommandTypes,
+			warningCoordinates
+		);
 		expect(result.isLost).toEqual(true);
 		expect(result.endPosition.heading).toEqual(Heading.North);
 		expect(result.endPosition.coordinate.x).toEqual(3);
@@ -152,7 +158,13 @@ describe('Direction processing tests', () => {
 		};
 		const directions = 'LLFFFLFLFL';
 		warningCoordinates.push({ x: 3, y: 3 });
-		const result: IProcessDirectionsResult = processDirections(gridLimit, startPosition, directions, commandTypes, warningCoordinates);
+		const result: IProcessDirectionsResult = processDirections(
+			gridLimit,
+			startPosition,
+			directions,
+			testCommandTypes,
+			warningCoordinates
+		);
 		expect(result.isLost).toEqual(false);
 		expect(result.endPosition.heading).toEqual(Heading.South);
 		expect(result.endPosition.coordinate.x).toEqual(2);
@@ -163,13 +175,13 @@ describe('Direction processing tests', () => {
 describe('Command validation tests', () => {
 	test('Valid command string', () => {
 		const directions = 'LRFLRF';
-		const result: boolean = checkDirectionsString(commandTypes, directions);
+		const result: boolean = checkDirectionsString(testCommandTypes, directions);
 		expect(result).toEqual(true);
 	});
 
 	test('Invalid command string', () => {
 		const directions = 'LRFXLRFX';
-		const result: boolean = checkDirectionsString(commandTypes, directions);
+		const result: boolean = checkDirectionsString(testCommandTypes, directions);
 		expect(result).toEqual(false);
 	});
 });

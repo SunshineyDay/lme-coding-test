@@ -48,7 +48,10 @@ export const ResultCard: React.FC<IResultCardProps> = (props) => {
 					/>
 				</div>
 				<div className="col-lg-9">
-					<Card className={`border-${getCardBorderClass(props.result.isLost, props.result.isInvalidDirections)}`}>
+					<Card
+						className={`border-${getCardBorderClass(props.result.isLost, props.result.isInvalidDirections)}`}
+						data-testid="resultcard-card"
+					>
 						<CardBody>
 							<CardTitle tag="h5">Robot {props.index + 1}</CardTitle>
 							<CardSubtitle tag="h6" className="mb-2 text-muted">
